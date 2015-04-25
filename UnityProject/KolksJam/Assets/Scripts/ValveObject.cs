@@ -5,6 +5,14 @@ public class ValveObject : MonoBehaviour, IActionReceiver
 {
     bool isClosed = false;
 
+    void Start()
+    {
+        gameObject.AddComponent<BoxCollider>();
+        Rigidbody r = gameObject.AddComponent<Rigidbody>();
+        r.useGravity = false;
+        r.isKinematic = true;
+    }
+
     public void CloseValve()
     {
         if (!isClosed)
