@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
 
 	[Header("INTERACTION VARS")]
 	public float interactionDistance = 1.0f;
+	public KeyCode interactionKey = KeyCode.Mouse0;
 	
 	[Header("FLASHLIGHT VARS")]
 	private bool canUseFlashlight;
@@ -96,7 +97,7 @@ public class PlayerScript : MonoBehaviour
 
 	private void HandleInteraction()
 	{
-		if(Input.GetKeyDown(KeyCode.E))
+		if(Input.GetKeyDown(interactionKey))
 		{
 			RaycastHit hit;
 			
