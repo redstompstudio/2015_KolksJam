@@ -1,0 +1,49 @@
+﻿using UnityEngine;
+using System.Collections;
+using Prime31.StateKit;
+
+public class StSpawn : SKState<EnemyController>
+{
+
+    const float MoveTime = 1f;
+    const iTween.EaseType EasyType = iTween.EaseType.easeInElastic;
+    const float FinalPosition = 0;
+    const float StartPosition = -10;
+
+    private bool m_bFinished = false;
+
+    public override void begin()
+    {
+        base.begin();
+        m_bFinished = false;
+
+        Context.SetPositionY(StartPosition);
+        iTween.MoveTo(Context.gameObject,
+            iTween.Hash(
+            "y", FinalPosition,
+            "time", MoveTime,
+            "easytype", EasyType
+            ));
+
+        Context.StartCoroutine(WaitSpawnAnim());
+    }
+
+    IEnumerator WaitSpawnAnim()
+    {
+        yield return new WaitForSeconds(MoveTime);
+        Finish();
+    }
+
+    private void Finish()
+    {
+        m_bFinished = true;
+        Context.EndState();
+    }
+
+
+    public override void update(float deltaTime)
+    {
+
+    }
+
+}
