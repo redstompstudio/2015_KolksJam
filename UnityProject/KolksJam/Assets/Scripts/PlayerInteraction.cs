@@ -8,14 +8,16 @@ public class PlayerInteraction : MonoBehaviour
 
 	private const string interactableTagName = "Interactable";
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+	public Light flashLight;
+
 	// Update is called once per frame
 	void Update () 
 	{
+		if(Input.GetKeyDown(KeyCode.F))
+		{
+			flashLight.enabled = !flashLight.enabled;
+		}
+
 		if(Input.GetKeyDown(KeyCode.E))
 		{
 			RaycastHit hit;
@@ -23,9 +25,7 @@ public class PlayerInteraction : MonoBehaviour
 			if(Physics.Raycast(playerHeadRef.position, playerHeadRef.forward, out hit, interactionDistance))
 			{
 				if(hit.transform.CompareTag(interactableTagName))
-				{
 					hit.transform.SendMessage("ExecuteAction", SendMessageOptions.DontRequireReceiver);
-				}
 			}
 		}
 	}
