@@ -20,6 +20,8 @@ public class PlayerScript : MonoBehaviour
 
 	[Header("STRESS VARS")]
 	public bool isStressed;
+	[Range(0, 2)]
+	public float stressLevel = 0.0f;
 	public AudioSource stressSound;
 
 	[Header("FOOTSTEP VARS")]
@@ -36,7 +38,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		HandleFlashlight();
 		HandleInteraction();
-		StressSound();
+		HandleStress();
 		FootStepSounds();
 
 		if(Input.GetKeyDown(KeyCode.I))
@@ -93,6 +95,12 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
+	private void HandleStress()
+	{
+		isStressed = stressLevel > 0.0f;
+		StressSound();
+	}
+
 	private void StressSound()
 	{
 		if(stressSound != null)
@@ -104,6 +112,11 @@ public class PlayerScript : MonoBehaviour
 			else if(!isStressed && stressSound.isPlaying)
 			{
 				stressSound.Stop();
+			}
+
+			if(stressSound.isPlaying)
+			{
+				stressSound.pitch = stressLevel / 1.5f;
 			}
 		}
 	}
