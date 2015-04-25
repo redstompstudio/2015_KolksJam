@@ -7,8 +7,10 @@ public class PlayerScript : MonoBehaviour
 	private RigidbodyFirstPersonController controller;
 	private const string interactableTagName = "Interactable";
 
-	[Header("... VARS")]
+	[Header("PLAYER VARS")]
 	public Transform playerHeadRef;
+	[SerializeField]
+	private bool isAlive;
 
 	[Header("INTERACTION VARS")]
 	public float interactionDistance = 1.0f;
@@ -36,6 +38,9 @@ public class PlayerScript : MonoBehaviour
 
 	private void Update()
 	{
+		if(!isAlive)
+			return;
+
 		HandleFlashlight();
 		HandleInteraction();
 		HandleStress();
@@ -43,8 +48,16 @@ public class PlayerScript : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.I))
 			BlinkFlashLight(10);
+
+
 	}
-	
+
+	public void Kill()
+	{
+		isAlive = false;
+		controller.enabled = false;
+	}
+
 	private void HandleFlashlight()
 	{
 		if(flashlightChargeTime > 0.0f)
