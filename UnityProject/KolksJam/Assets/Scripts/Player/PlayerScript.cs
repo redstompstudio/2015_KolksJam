@@ -59,6 +59,24 @@ public class PlayerScript : MonoBehaviour
 		controller.enabled = false;
 	}
 
+    void OnGUI()
+    {
+        if (!isAlive)
+        {
+            float fWidth = Screen.width/2;
+            float fHeight = Screen.height/2;
+
+            if(GUI.Button(new Rect(
+                fWidth - (fWidth / 2),
+                fHeight - (fHeight / 2),
+                fWidth, fHeight
+                ), "Restart"))
+            {
+                Application.LoadLevel("GameLoop");
+            }
+        }
+    }
+
 	private void HandleFlashlight()
 	{
 		if(flashlightChargeTime > 0.0f)

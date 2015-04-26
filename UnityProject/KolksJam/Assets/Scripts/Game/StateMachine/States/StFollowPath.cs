@@ -7,7 +7,7 @@ using Prime31.StateKit;
 public class StFollowPath : SKState<EnemyController>
 {
     int m_iCurrentWaypointIndex;
-    List<Vector3> m_pPath;
+    //List<Vector3> m_pPath;
     private Vector3 m_pReachPoint;
 
     public override void begin()
@@ -15,29 +15,36 @@ public class StFollowPath : SKState<EnemyController>
         base.begin();
 
         List<Transform> pTrans = Context.GetPath();
-        m_pPath = new List<Vector3>();
+        /*m_pPath = new List<Vector3>();
         for (int i = 0; i < pTrans.Count; i++)
             m_pPath.Add(pTrans[i].position);
         m_iCurrentWaypointIndex = 0;
 
-        m_pReachPoint = m_pPath[m_pPath.Count - 1];;
+        m_pReachPoint = m_pPath[m_pPath.Count - 1];;*/
+        m_pReachPoint = Context.TargetPosition;
         Context.NavMeshAgent.destination = m_pReachPoint;
+        Context.Animator.SetFloat("Speed", 1);
+        
     }
 
     public override void reason()
     {
         base.reason();
-
+        /*if (!Context.NavMeshAgent.remainingDistance)
+            Context.EndState();*/        
         if (Context.IsInRange(m_pReachPoint))
             Context.EndState();
     }
 
     public override void update(float deltaTime)
     {
+
+        //Context.Animator.SetFloat("Speed", 1);
+        
         // do not need it if using navmesh
         //UpdateManualPath();
     }
-
+    /*
     private void UpdateManualPath()
     {
         while (true)
@@ -85,7 +92,7 @@ public class StFollowPath : SKState<EnemyController>
         //move
         Vector3 vNewPos = vPos + vSpeed;
         Context.SetPosition(vNewPos);
-    }
+    }*/
 
     /// <summary>
     /// reachhh
@@ -93,5 +100,13 @@ public class StFollowPath : SKState<EnemyController>
     private void OnReachPath()
     {
         Context.EndState();
+    }
+
+    public override void end()
+    {
+        base.end();
+        // stop moving
+        //Context.NavMeshAgent.destination = Context.Position;
+        Context.NavMeshAgent.Stop();
     }
 }

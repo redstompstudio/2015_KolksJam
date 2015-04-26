@@ -1,0 +1,484 @@
+fileFormatVersion: 2
+guid: 40212c8c1b26f964784de1c4b8cb2f72
+timeCreated: 1429946437
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Chest
+    100004: Group1
+    100006: Hand_R
+    100008: Hand_R_001
+    100010: Head
+    100012: Hips
+    100014: Index_R
+    100016: Index_R_001
+    100018: //RootNode
+    100020: LwrArm_R
+    100022: LwrArm_R_001
+    100024: Main
+    100026: Middle_R
+    100028: Middle_R_001
+    100030: Neck
+    100032: Pinky_R
+    100034: Pinky_R_001
+    100036: Ring_R
+    100038: Ring_R_001
+    100040: Shoulder_R
+    100042: Shoulder_R_001
+    100044: Spine
+    100046: Tail
+    100048: Tail2
+    100050: Thumb_R
+    100052: Thumb_R_001
+    100054: UprArm_R
+    100056: UprArm_R_001
+    100058: Hand_L
+    100060: Index_L
+    100062: LwrArm_L
+    100064: Middle_L
+    100066: Pinky_L
+    100068: Ring_L
+    100070: Shoulder_L
+    100072: Thumb_L
+    100074: UprArm_L
+    400000: Armature
+    400002: Chest
+    400004: Group1
+    400006: Hand_R
+    400008: Hand_R_001
+    400010: Head
+    400012: Hips
+    400014: Index_R
+    400016: Index_R_001
+    400018: //RootNode
+    400020: LwrArm_R
+    400022: LwrArm_R_001
+    400024: Main
+    400026: Middle_R
+    400028: Middle_R_001
+    400030: Neck
+    400032: Pinky_R
+    400034: Pinky_R_001
+    400036: Ring_R
+    400038: Ring_R_001
+    400040: Shoulder_R
+    400042: Shoulder_R_001
+    400044: Spine
+    400046: Tail
+    400048: Tail2
+    400050: Thumb_R
+    400052: Thumb_R_001
+    400054: UprArm_R
+    400056: UprArm_R_001
+    400058: Hand_L
+    400060: Index_L
+    400062: LwrArm_L
+    400064: Middle_L
+    400066: Pinky_L
+    400068: Ring_L
+    400070: Shoulder_L
+    400072: Thumb_L
+    400074: UprArm_L
+    4300000: Group1
+    7400000: Attack
+    7400002: Idle
+    7400004: Walk
+    7400006: Spawn
+    9500000: //RootNode
+    13700000: Group1
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack
+      takeName: Attack
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Hips
+        weight: 1
+      - path: Armature/Main/Hips/Tail
+        weight: 1
+      - path: Armature/Main/Hips/Tail/Tail2
+        weight: 1
+      - path: Armature/Main/Spine
+        weight: 1
+      - path: Armature/Main/Spine/Chest
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Middle_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Pinky_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Ring_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Thumb_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Middle_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Pinky_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Ring_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Thumb_R
+        weight: 1
+      - path: Group1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Hips
+        weight: 1
+      - path: Armature/Main/Hips/Tail
+        weight: 1
+      - path: Armature/Main/Hips/Tail/Tail2
+        weight: 1
+      - path: Armature/Main/Spine
+        weight: 1
+      - path: Armature/Main/Spine/Chest
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Middle_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Pinky_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Ring_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Thumb_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Middle_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Pinky_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Ring_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Thumb_R
+        weight: 1
+      - path: Group1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Hips
+        weight: 1
+      - path: Armature/Main/Hips/Tail
+        weight: 1
+      - path: Armature/Main/Hips/Tail/Tail2
+        weight: 1
+      - path: Armature/Main/Spine
+        weight: 1
+      - path: Armature/Main/Spine/Chest
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Middle_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Pinky_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Ring_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Thumb_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Middle_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Pinky_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Ring_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Thumb_R
+        weight: 1
+      - path: Group1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Spawn
+      takeName: Spawn
+      firstFrame: 1
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Hips
+        weight: 1
+      - path: Armature/Main/Hips/Tail
+        weight: 1
+      - path: Armature/Main/Hips/Tail/Tail2
+        weight: 1
+      - path: Armature/Main/Spine
+        weight: 1
+      - path: Armature/Main/Spine/Chest
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Middle_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Pinky_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Ring_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_L/UprArm_L/LwrArm_L/Hand_L/Thumb_L
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Middle_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Pinky_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Ring_R
+        weight: 1
+      - path: Armature/Main/Spine/Chest/Shoulder_R/UprArm_R/LwrArm_R/Hand_R/Thumb_R
+        weight: 1
+      - path: Group1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

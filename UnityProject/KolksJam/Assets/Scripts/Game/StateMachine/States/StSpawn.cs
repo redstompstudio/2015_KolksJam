@@ -4,12 +4,9 @@ using Prime31.StateKit;
 
 public class StSpawn : SKState<EnemyController>
 {
-
-    const float MoveTime = 1f;
     const iTween.EaseType EasyType = iTween.EaseType.easeInElastic;
-    const float FinalPosition = 0;
-    const float StartPosition = -10;
-
+    const float FinalPosition = IADefs.GroundPosition;
+    const float StartPosition = 2;
     private bool m_bFinished = false;
 
     public override void begin()
@@ -17,20 +14,27 @@ public class StSpawn : SKState<EnemyController>
         base.begin();
         m_bFinished = false;
 
-        Context.SetPositionY(StartPosition);
+        Context.Animator.SetFloat("Speed", 0); 
+        Context.StartCoroutine(WaitSpawnAnim());
+    }
+
+    void DoAnim()
+    {
+
+        Context.SetPositionY(Context.Position.y - StartPosition);
         iTween.MoveTo(Context.gameObject,
             iTween.Hash(
-            "y", FinalPosition,
-            "time", MoveTime,
+            "y", Context.Position.y,
+            "time", IADefs.SpawnTime,
             "easytype", EasyType
-            ));
-
-        Context.StartCoroutine(WaitSpawnAnim());
+            ));   
     }
 
     IEnumerator WaitSpawnAnim()
     {
-        yield return new WaitForSeconds(MoveTime);
+        DoAnim();
+        yield return new WaitForSeconds(IADefs.SpawnTime);
+        yield return new WaitForSeconds(IADefs.SpawnTimeDelay);
         Finish();
     }
 
