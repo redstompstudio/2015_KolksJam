@@ -121,6 +121,18 @@ public class PlayerScript : MonoBehaviour
 
 	private void HandleStress()
 	{
+		float blondeDistance = Vector3.Distance(transform.position, SceneManager.Instance.enemy.transform.position);
+
+		if(blondeDistance < 10.0f)
+		{
+			if(blondeDistance < 5.0f)
+				stressLevel = 2.0f;
+			else
+				stressLevel = 1.0f;
+		}
+		else
+			stressLevel = 0.0f;
+
 		isStressed = stressLevel > 0.0f;
 		StressSound();
 	}
