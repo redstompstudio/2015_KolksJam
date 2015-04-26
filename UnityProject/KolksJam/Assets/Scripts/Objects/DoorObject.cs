@@ -11,6 +11,10 @@ public class DoorObject : MonoBehaviour, IActionReceiver
     public bool canOpenDoor = false;
     bool isAnimating = false;
 
+	public AudioSource tryToOpenSFX;
+	public AudioSource openingSFX;
+	public AudioSource doorSlamSFX;
+
     void Start()
     {
         BoxCollider originalCollider = gameObject.AddComponent<BoxCollider>();
@@ -61,9 +65,15 @@ public class DoorObject : MonoBehaviour, IActionReceiver
     {
         if (canOpenDoor && !isAnimating)
         {
+			tryToOpenSFX.Play();
+			openingSFX.Play();
             isAnimating = true;
             OpenDoor();
         }
+		else
+		{
+			tryToOpenSFX.Play();
+		}
     }
 
     void OnTriggerEnter()
