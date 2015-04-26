@@ -60,8 +60,6 @@ public class PlayerScript : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.I))
 			BlinkFlashLight(10);
-
-
 	}
 
 	public void Kill()
