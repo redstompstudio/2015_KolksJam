@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FinalCutscene : MonoBehaviour 
 {
+	public static FinalCutscene instance;
+
 	public Camera cutsceneCamera;
 	public GameObject crosshairRef;
 
@@ -14,10 +16,18 @@ public class FinalCutscene : MonoBehaviour
 	public Light valveSpotlight;
 	public AudioSource tamtaaaaam;
 
+	void Awake()
+	{
+		instance = this;
+	}
+
 	public void StartCutscene()
 	{
 		Camera.main.gameObject.SetActive(false);
+
 		cutsceneCamera.enabled = true;
+		cutsceneCamera.GetComponent<AudioListener>().enabled = true;
+
 		crosshairRef.SetActive(false);
 
 		deathSFX.Play();
@@ -26,13 +36,13 @@ public class FinalCutscene : MonoBehaviour
 		StartCoroutine(EmposoredByValve());
 	}
 
-	void OnGUI()
-	{
-		if(GUILayout.Button("Start Cutscene"))
-		{
-			StartCutscene();
-		}
-	}
+//	void OnGUI()
+//	{
+//		if(GUILayout.Button("Start Cutscene"))
+//		{
+//			StartCutscene();
+//		}
+//	}
 
 	IEnumerator EmposoredByValve()
 	{

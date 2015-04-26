@@ -39,6 +39,9 @@ public class SceneManager : MonoBehaviour
     public void IncrementValveCount()
     {
         valvesOpenned++;
+
+		if(valvesOpenned >= valvesCount)
+			FinalCutscene.instance.StartCutscene();
     }
 
     public int GetValveCount()

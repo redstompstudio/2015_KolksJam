@@ -26,6 +26,12 @@ public class EnemyController : MonoBehaviour
     public float MoveSpeed = 5;
     [HideInInspector] public Vector3 StartPosition;
 
+    [SerializeField] public bool m_MoveOnSpawnAndDespawn = false;
+
+    [Header("Follow Path")]
+    public float m_WaitWalking = 0;
+    public float m_WaitWalkingBack = 0;
+
     // privates
     private SKStateMachine<EnemyController> m_pMachine;
     private EnemyStates m_eCurrentState;
@@ -266,15 +272,22 @@ public class EnemyController : MonoBehaviour
     Collider m_pOnRange = null;
     private void OnTriggerStay(Collider pCollider)
     {
+        if (CurrentState != EnemyStates.FollowPath)
+            return;
         //if (pCollider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-
             float fAngle = Vector3.Angle(Transform.forward, Player.transform.position - Position);
             if (fAngle <= 90 && m_pOnRange == null)
             {
-                m_pOnRange = pCollider;
-                TargetPosition = transform.position;
-                SetState(EnemyStates.TurnToPlayer);
+                RaycastHit pHit;
+                bool bCollide = Physics.Raycast(Position, IAHelper.Normalize(Player.transform.position - Position), out pHit, 100);
+                if (!bCollide || pHit.collider.tag == Player.tag)
+                {
+                    m_pOnRange = pCollider;
+                    TargetPosition = transform.position;
+                    SetState(EnemyStates.TurnToPlayer);
+                }
+                //Debug.LogError
             }
             //Debug.Log(fAngle.ToString());
         }
@@ -293,9 +306,10 @@ public class EnemyController : MonoBehaviour
     #endregion
 
 
-
+#if UNITY_EDITOR
     void OnGUI()
     {
         GUI.Label(new Rect(0, 50, 400, 50), CurrentState.ToString());// + "  - " + IAHelper.Distance2D(Position, Player.transform.position));
     }
+#endif
 }

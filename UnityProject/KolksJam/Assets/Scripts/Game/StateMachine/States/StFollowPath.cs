@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Prime31.StateKit;
@@ -10,22 +10,30 @@ public class StFollowPath : SKState<EnemyController>
     //List<Vector3> m_pPath;
     private Vector3 m_pReachPoint;
 
+    private bool m_bWalking = false;
+    float m_fWalkingTime = 0;
+    float m_fWaitingTime = 0;
+    bool m_bRunning = false;
+    float m_fOriginalVelocity;
+    bool m_bFirstRun = true;
+
     public override void begin()
     {
         base.begin();
-
+        if (m_bFirstRun)
+        {
+            m_bFirstRun = false;
+            m_fOriginalVelocity = Context.NavMeshAgent.speed;
+        }
         List<Transform> pTrans = Context.GetPath();
-        /*m_pPath = new List<Vector3>();
-        for (int i = 0; i < pTrans.Count; i++)
-            m_pPath.Add(pTrans[i].position);
-        m_iCurrentWaypointIndex = 0;
-
-        m_pReachPoint = m_pPath[m_pPath.Count - 1];;*/
         m_pReachPoint = Context.TargetPosition;
+        Context.NavMeshAgent.Resume();
         Context.NavMeshAgent.destination = m_pReachPoint;
         Context.Animator.SetFloat("Speed", 1);
-        
+        m_bWalking = true;
+        m_bRunning = !m_bRunning;
     }
+
 
     public override void reason()
     {
@@ -38,9 +46,40 @@ public class StFollowPath : SKState<EnemyController>
 
     public override void update(float deltaTime)
     {
+        // do not need to stop
+        if(Context.m_WaitWalking <= 0)
+            return;
 
-        //Context.Animator.SetFloat("Speed", 1);
-        
+        if (m_bWalking )
+        {
+            m_fWalkingTime += deltaTime;
+            if (m_fWalkingTime >= Context.m_WaitWalking)
+            {
+                m_fWalkingTime = 0;
+                Context.NavMeshAgent.Stop();
+                //Vector3 pVect = IAHelper.Normalize(Context.NavMeshAgent.velocity);
+                //if (!float.IsNaN(pVect.x) && !float.IsNaN(pVect.y) && !float.IsNaN(pVect.z) )
+                //    Context.NavMeshAgent.velocity = pVect;
+                Context.NavMeshAgent.velocity = Vector3.zero;
+                m_bWalking = false;
+                Context.Animator.SetFloat("Speed", 0);
+            }
+        }
+        if (!m_bWalking)
+        {
+            m_fWaitingTime += deltaTime;
+            if (m_fWaitingTime >= Context.m_WaitWalkingBack)
+            {
+                m_fWaitingTime = 0;
+                if (m_bRunning)
+                    Context.NavMeshAgent.speed = m_fOriginalVelocity * 2;
+                else
+                    Context.NavMeshAgent.speed = m_fOriginalVelocity;
+                Context.NavMeshAgent.acceleration = Context.NavMeshAgent.speed;
+                begin();
+            }
+        }
+
         // do not need it if using navmesh
         //UpdateManualPath();
     }

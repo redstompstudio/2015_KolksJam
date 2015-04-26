@@ -20,7 +20,7 @@ public class Waypoint : MonoBehaviour
         for (int i = m_WaypointView.Length -1; i >= 0; i--)
         {
             m_pPositions[i] = m_WaypointView[i].transform.position;
-            Destroy(m_WaypointView[i]);
+            //Destroy(m_WaypointView[i]);
         }
     }
 
