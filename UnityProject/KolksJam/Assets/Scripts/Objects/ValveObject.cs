@@ -4,6 +4,10 @@ using System.Collections;
 public class ValveObject : MonoBehaviour, IActionReceiver 
 {
     bool isClosed = false;
+	bool isClosing = false;
+	public float dropsSFXRate;
+	public AudioSource dropSFX;
+	public AudioSource closingSFX;
 
     void Start()
     {
@@ -11,24 +15,42 @@ public class ValveObject : MonoBehaviour, IActionReceiver
         Rigidbody r = gameObject.AddComponent<Rigidbody>();
         r.useGravity = false;
         r.isKinematic = true;
+
+		StartCoroutine(PlayDropsSFX());
     }
+
+	public void ExecuteAction()
+	{
+		CloseValve();
+	}
+
+	public IEnumerator PlayDropsSFX()
+	{
+		while(!isClosed)
+		{
+			dropSFX.Play();
+			yield return new WaitForSeconds(dropsSFXRate);
+		}
+	}
 
     public void CloseValve()
     {
-        if (!isClosed)
+        if (!isClosed && !isClosing)
         {
-            Debug.Log("CloseValve");
-            LeanTween.rotateAroundLocal(gameObject, Vector3.up, 360f, 2.5f).setOnComplete(SetValveClosed);
-        }
-    }
+			isClosing = true;
+			if(closingSFX)
+				closingSFX.Play();
 
-    public void ExecuteAction()
-    {
-        CloseValve();
+            Debug.Log("CloseValve");
+            LeanTween.rotateAroundLocal(gameObject, Vector3.up, 360f, 4.0f).setOnComplete(SetValveClosed);
+        }
     }
 
     void SetValveClosed()
     {
         isClosed = true;
+
+		if(dropSFX)
+			dropSFX.Stop();
     }
 }
