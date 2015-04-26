@@ -102,6 +102,11 @@ public class EnemyController : MonoBehaviour
 
     public void Initialize(Waypoint pWaypoint)
     {
+        // pos
+        StartPosition = Position;
+        // do not know why the hell the start position does not work
+        StartPosition.y = 0.08332921f;  
+
         if (!Player)
             Player = FindObjectOfType<PlayerScript>();
         StopAllCoroutines();
@@ -112,6 +117,7 @@ public class EnemyController : MonoBehaviour
         gameObject.SetActive(true);
         // init
         SetState(EnemyStates.Spawn);
+
     }
     void Start()
 	{
@@ -257,21 +263,31 @@ public class EnemyController : MonoBehaviour
     
 
     #region Triggers
-
-    private void OnTriggerEnter(Collider pCollider)
+    Collider m_pOnRange = null;
+    private void OnTriggerStay(Collider pCollider)
     {
         //if (pCollider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            TargetPosition = transform.position;
-            SetState(EnemyStates.TurnToPlayer);
+
+            float fAngle = Vector3.Angle(Transform.forward, Player.transform.position - Position);
+            if (fAngle <= 90 && m_pOnRange == null)
+            {
+                m_pOnRange = pCollider;
+                TargetPosition = transform.position;
+                SetState(EnemyStates.TurnToPlayer);
+            }
+            //Debug.Log(fAngle.ToString());
         }
     }
     private void OnTriggerExit(Collider pCollider)
     {
-        //if (pCollider.gameObject.layer == LayerMask.NameToLayer("Player"))
+       // if (pCollider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (pCollider == m_pOnRange)
         {
+            m_pOnRange = null;
             TargetPosition = Vector3.zero;
             SetState(EnemyStates.FollowPath);
+            
         }
     }
     #endregion

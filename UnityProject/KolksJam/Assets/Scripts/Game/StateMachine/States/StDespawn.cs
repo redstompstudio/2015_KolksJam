@@ -29,6 +29,8 @@ public class StDespawn  : SKState<EnemyController>
             "time", IADefs.DespawnTime,
             "easytype", EasyType
             ));
+
+        SoundList.Play3D("SfxDespawn");
     }
 
     IEnumerator WaitSpawnAnim()

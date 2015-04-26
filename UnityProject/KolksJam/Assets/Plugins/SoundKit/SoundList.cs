@@ -5,6 +5,7 @@ public class SoundList : MonoBehaviour
 {
     static SoundList m_pInstance;
     [SerializeField] protected AudioClip[] m_SoundList;
+    [SerializeField] protected AudioSource[] m_SoundSourceList;
 
     void Awake()
     {
@@ -40,4 +41,26 @@ public class SoundList : MonoBehaviour
         return null;
     }
 
+
+
+
+    public static void Play3D(string sSoundName)
+    {
+        AudioSource pSound = GetSoundSource(sSoundName);
+        if (pSound)
+        {
+            pSound.Play();
+        }
+    }
+
+    public static AudioSource GetSoundSource(string sSoundName)
+    {
+        foreach (AudioSource pSound in m_pInstance.m_SoundSourceList)
+        {
+            if (pSound != null && pSound.name == sSoundName)
+                return pSound;
+        }
+        Debug.LogError("Sound Not Found[" + sSoundName + "]");
+        return null;
+    }
 }

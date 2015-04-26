@@ -28,12 +28,14 @@ public class StSpawn : SKState<EnemyController>
             "time", IADefs.SpawnTime,
             "easytype", EasyType
             ));
-        Debug.Log("From[" + Context.Position.y + "] to[" + Context.StartPosition.y + "]");
+        SoundList.Play3D("SfxSpawn");
+            
     }
 
     IEnumerator WaitSpawnAnim()
     {
         DoAnim();
+        yield return null;
         yield return new WaitForSeconds(IADefs.SpawnTime);
         yield return new WaitForSeconds(IADefs.SpawnTimeDelay);
         Finish();

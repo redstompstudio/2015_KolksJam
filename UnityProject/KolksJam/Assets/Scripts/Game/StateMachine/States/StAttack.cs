@@ -29,11 +29,12 @@ public class StAttack : SKState<EnemyController>
         pPos.y = Context.Position.y;
         Context.Transform.LookAt(pPos);
 
+        float fScale = 1;
+        Context.Transform.localScale += new Vector3(fScale, fScale, fScale) * Time.deltaTime;
+
         if (Context.IsInRange(Context.TargetPosition))
             return;
         MoveTo(Context.TargetPosition);
-        float fScale = 2;
-        Context.Transform.localScale += new Vector3(fScale, fScale, fScale) * Time.deltaTime;
     }
 
     private void MoveTo(Vector3 pPoint)
