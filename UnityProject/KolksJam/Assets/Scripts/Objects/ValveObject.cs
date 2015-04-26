@@ -9,6 +9,8 @@ public class ValveObject : MonoBehaviour, IActionReceiver
 	public AudioSource dropSFX;
 	public AudioSource closingSFX;
 
+    public ParticleSystem waterParticle;
+
     void Start()
     {
         gameObject.AddComponent<BoxCollider>();
@@ -54,5 +56,6 @@ public class ValveObject : MonoBehaviour, IActionReceiver
 			dropSFX.Stop();
 
         SceneManager.Instance.IncrementValveCount();
+        waterParticle.Stop();
     }
 }
