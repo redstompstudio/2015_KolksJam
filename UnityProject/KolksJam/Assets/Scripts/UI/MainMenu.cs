@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
         if (!showCredits && Credits.alpha > 0)
             Credits.alpha -= .7f * Time.deltaTime;
 
-        ValvesCount.text = SceneManager.Instance.GetValveCount() + "x";
+        ValvesCount.text = SceneManager.Instance.GetValveCount().ToString();
     }
 
     public void OnClickPlay()
@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickExit()
     {
-
+        Debug.Log("Sair");
     }
 
     public void OnClickCredits()
