@@ -71,8 +71,15 @@ public class PlayerScript : MonoBehaviour
 		isAlive = false;
 		controller.enabled = false;
         footStepSound.Stop();
+
+		StartCoroutine(RestartScene());
 	}
 
+	public IEnumerator RestartScene()
+	{
+		yield return new WaitForSeconds(4.0f);
+		Application.LoadLevel("GameLoop");
+	}
 
 	private void HandleFlashlight()
 	{
@@ -184,21 +191,21 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// DEBUG temporary UI
     /// </summary>
-    void OnGUI()
-    {
-        if (!isAlive)
-        {
-            float fWidth = Screen.width / 3;
-            float fHeight = Screen.height / 3;
-
-            if (GUI.Button(new Rect(
-                fWidth - (fWidth / 3),
-                fHeight - (fHeight / 3),
-                fWidth, fHeight
-                ), "You are seeing dead wet woman!\nClick to restart"))
-            {
-                Application.LoadLevel("GameLoop");
-            }
-        }
-    }
+//    void OnGUI()
+//    {
+//        if (!isAlive)
+//        {
+//            float fWidth = Screen.width / 3;
+//            float fHeight = Screen.height / 3;
+//
+//            if (GUI.Button(new Rect(
+//                fWidth - (fWidth / 3),
+//                fHeight - (fHeight / 3),
+//                fWidth, fHeight
+//                ), "You are seeing dead wet woman!\nClick to restart"))
+//            {
+//                
+//            }
+//        }
+//    }
 }
