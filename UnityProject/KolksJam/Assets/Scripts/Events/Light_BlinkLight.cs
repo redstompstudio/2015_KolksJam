@@ -21,9 +21,9 @@ public class Light_BlinkLight : MonoBehaviour
 		{
 			count++;
 			light.enabled = false;
-			yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
+			yield return new WaitForSeconds(Random.Range(0.1f, 0.35f));
 			light.enabled = true;
-			yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
+			yield return new WaitForSeconds(Random.Range(0.1f, 0.35f));
 		}
 	}
 }
