@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour 
 {
@@ -9,6 +10,13 @@ public class SceneManager : MonoBehaviour
 
 	public PlayerScript player;
 	public EnemyController enemy;
+
+    public Text ValvesCount;
+
+    void Update()
+    {
+        ValvesCount.text = valvesOpenned.ToString();
+    }
 
 	public static SceneManager Instance
 	{
