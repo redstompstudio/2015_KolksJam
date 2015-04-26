@@ -32,6 +32,14 @@ public class PlayerScript : MonoBehaviour
 	public AudioSource footStepSound;
 
 
+    public Camera Camera
+    {
+        get
+        {
+            return controller.cam;
+        }
+    }
+
 	private void Awake()
 	{
 		controller = GetComponent<RigidbodyFirstPersonController>();
@@ -57,25 +65,9 @@ public class PlayerScript : MonoBehaviour
 	{
 		isAlive = false;
 		controller.enabled = false;
+        footStepSound.Stop();
 	}
 
-    void OnGUI()
-    {
-        if (!isAlive)
-        {
-            float fWidth = Screen.width/2;
-            float fHeight = Screen.height/2;
-
-            if(GUI.Button(new Rect(
-                fWidth - (fWidth / 2),
-                fHeight - (fHeight / 2),
-                fWidth, fHeight
-                ), "Restart"))
-            {
-                Application.LoadLevel("GameLoop");
-            }
-        }
-    }
 
 	private void HandleFlashlight()
 	{
@@ -169,4 +161,27 @@ public class PlayerScript : MonoBehaviour
 				footStepSound.Stop();
 		}
 	}
+
+
+
+    /// <summary>
+    /// DEBUG temporary UI
+    /// </summary>
+    void OnGUI()
+    {
+        if (!isAlive)
+        {
+            float fWidth = Screen.width / 3;
+            float fHeight = Screen.height / 3;
+
+            if (GUI.Button(new Rect(
+                fWidth - (fWidth / 3),
+                fHeight - (fHeight / 3),
+                fWidth, fHeight
+                ), "You are seeing dead wet woman!\nClick to restart"))
+            {
+                Application.LoadLevel("GameLoop");
+            }
+        }
+    }
 }

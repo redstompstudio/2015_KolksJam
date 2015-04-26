@@ -13,21 +13,18 @@ public class StAttack : SKState<EnemyController>
         Context.StartCoroutine(AttackLoop());
 
         Context.Player.Kill();
-        Context.Player.transform.LookAt(Context.MyFace);
-
         SoundList.PlayOneShot("SfxSusto");
     }
 
     IEnumerator AttackLoop()
     {
-        Context.Player.transform.LookAt(Context.MyFace);
         yield return new WaitForSeconds(.5f);
         Context.EndState();
     }
 
     public override void update(float deltaTime)
     {
-        Context.Player.transform.LookAt(Context.MyFace);
+        Context.Player.Camera.transform.LookAt(Context.MyFace);
         Vector3 pPos = Context.Player.transform.position;
         pPos.y = Context.Position.y;
         Context.Transform.LookAt(pPos);
@@ -35,7 +32,8 @@ public class StAttack : SKState<EnemyController>
         if (Context.IsInRange(Context.TargetPosition))
             return;
         MoveTo(Context.TargetPosition);
-        Context.Transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime;
+        float fScale = 2;
+        Context.Transform.localScale += new Vector3(fScale, fScale, fScale) * Time.deltaTime;
     }
 
     private void MoveTo(Vector3 pPoint)

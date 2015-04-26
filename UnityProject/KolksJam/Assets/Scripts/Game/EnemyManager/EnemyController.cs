@@ -24,11 +24,13 @@ public class EnemyController : MonoBehaviour
     private PlayerScript m_pPlayer;
     public List<Transform> Path;    
     public float MoveSpeed = 5;
+    [HideInInspector] public Vector3 StartPosition;
 
     // privates
     private SKStateMachine<EnemyController> m_pMachine;
     private EnemyStates m_eCurrentState;
     private Vector3 m_pTarget;
+
 
 
     // events

@@ -20,7 +20,7 @@ public class Waypoint : MonoBehaviour
         for (int i = m_WaypointView.Length -1; i >= 0; i--)
         {
             m_pPositions[i] = m_WaypointView[i].transform.position;
-            //Destroy(m_WaypointView[i]);
+            Destroy(m_WaypointView[i]);
         }
     }
 
@@ -47,11 +47,17 @@ public class Waypoint : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (m_WaypointView[0] == null || m_WaypointView[1] == null)
-            return;
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(m_WaypointView[0].transform.position, m_WaypointView[1].transform.position);
-        Gizmos.DrawCube(transform.position, new Vector3(1, 1, 1));
+        if (m_WaypointView[0] != null && m_WaypointView[1] != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(m_WaypointView[0].transform.position, m_WaypointView[1].transform.position);
+            //Gizmos.DrawCube(transform.position, new Vector3(1, 1, 1));
+        }
+        else if (m_pPositions[0] != null && m_pPositions[1] != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(m_pPositions[0], m_pPositions[1]);
+        }
     }
 #endif
 
@@ -62,6 +68,7 @@ public class Waypoint : MonoBehaviour
     /// <returns></returns>
     public void RandomizePosition()
     {
+        m_pPositions.Shuffle<Vector3>();
         //return m_pPositions[Random.Range(0, m_pPositions.Length - 1)];
     }
 }

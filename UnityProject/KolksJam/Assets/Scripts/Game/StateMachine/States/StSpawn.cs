@@ -21,13 +21,14 @@ public class StSpawn : SKState<EnemyController>
     void DoAnim()
     {
 
-        Context.SetPositionY(Context.Position.y - StartPosition);
+        Context.SetPositionY(Context.StartPosition.y - StartPosition);
         iTween.MoveTo(Context.gameObject,
             iTween.Hash(
-            "y", Context.Position.y,
+            "y", Context.StartPosition.y,
             "time", IADefs.SpawnTime,
             "easytype", EasyType
-            ));   
+            ));
+        Debug.Log("From[" + Context.Position.y + "] to[" + Context.StartPosition.y + "]");
     }
 
     IEnumerator WaitSpawnAnim()
