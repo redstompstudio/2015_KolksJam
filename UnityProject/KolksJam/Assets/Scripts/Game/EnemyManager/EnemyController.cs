@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
     public float MoveSpeed = 5;
     [HideInInspector] public Vector3 StartPosition;
 
+    public float m_WaitWalking = 0;
+
     // privates
     private SKStateMachine<EnemyController> m_pMachine;
     private EnemyStates m_eCurrentState;
