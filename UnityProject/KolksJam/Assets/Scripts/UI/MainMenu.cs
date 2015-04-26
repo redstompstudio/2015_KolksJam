@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject[] UIElements;
+
     public CanvasGroup Credits;
 
     public Text ValvesCount;
@@ -33,8 +35,6 @@ public class MainMenu : MonoBehaviour
 
         if (!showCredits && Credits.alpha > 0)
             Credits.alpha -= .7f * Time.deltaTime;
-
-        ValvesCount.text = SceneManager.Instance.GetValveCount() + "x";
     }
 
     public void OnClickPlay()
@@ -44,11 +44,18 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = false;
         showMainMenu = false;
         AIM.color = new Color(1f, 1f, 1f, 1f);
+        DisableUI();
+    }
+
+    void DisableUI()
+    {
+        foreach (GameObject g in UIElements)
+            g.SetActive(false);
     }
 
     public void OnClickExit()
     {
-
+        Debug.Log("Sair");
     }
 
     public void OnClickCredits()
