@@ -43,13 +43,17 @@ public class PlayerScript : MonoBehaviour
 	private void Awake()
 	{
 		controller = GetComponent<RigidbodyFirstPersonController>();
+		controller.enabled = false;
+	}
 
+	public void OnStartGame()
+	{
+		controller.enabled = true;
+		isAlive = true;
 	}
 
 	private void Update()
 	{
-		Cursor.lockState = CursorLockMode.Locked;
-
 		if(!isAlive)
 			return;
 
@@ -60,8 +64,6 @@ public class PlayerScript : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.I))
 			BlinkFlashLight(10);
-
-
 	}
 
 	public void Kill()
