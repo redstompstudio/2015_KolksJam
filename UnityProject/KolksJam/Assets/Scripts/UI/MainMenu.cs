@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 
     public Text ValvesCount;
 
+    public Image AIM;
+
     CanvasGroup mainMenu;
 
     bool showMainMenu = true;
@@ -41,6 +43,7 @@ public class MainMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         showMainMenu = false;
+        AIM.color = new Color(1f, 1f, 1f, 1f);
     }
 
     public void OnClickExit()
