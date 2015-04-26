@@ -52,5 +52,7 @@ public class ValveObject : MonoBehaviour, IActionReceiver
 
 		if(dropSFX)
 			dropSFX.Stop();
+
+        SceneManager.Instance.IncrementValveCount();
     }
 }

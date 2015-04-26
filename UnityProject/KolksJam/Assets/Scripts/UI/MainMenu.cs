@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public CanvasGroup credits;
+    public CanvasGroup Credits;
+
+    public Text ValvesCount;
 
     CanvasGroup mainMenu;
 
@@ -24,16 +26,21 @@ public class MainMenu : MonoBehaviour
         if (!showMainMenu && mainMenu.alpha > 0)
             mainMenu.alpha -= .7f * Time.deltaTime;
 
-        if (showCredits && credits.alpha < 1)
-            credits.alpha += .7f * Time.deltaTime;
+        if (showCredits && Credits.alpha < 1)
+            Credits.alpha += .7f * Time.deltaTime;
 
-        if (!showCredits && credits.alpha > 0)
-            credits.alpha -= .7f * Time.deltaTime;
+        if (!showCredits && Credits.alpha > 0)
+            Credits.alpha -= .7f * Time.deltaTime;
+
+        ValvesCount.text = SceneManager.Instance.GetValveCount() + "x";
     }
 
     public void OnClickPlay()
     {
-
+        SceneManager.Instance.player.OnStartGame();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        showMainMenu = false;
     }
 
     public void OnClickExit()

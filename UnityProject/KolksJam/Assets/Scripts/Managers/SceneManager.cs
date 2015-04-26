@@ -5,6 +5,8 @@ public class SceneManager : MonoBehaviour
 {
 	private static SceneManager instance;
 
+    private int valvesOpenned = 0;
+
 	public PlayerScript player;
 	public EnemyController enemy;
 
@@ -22,4 +24,14 @@ public class SceneManager : MonoBehaviour
 			return instance;
 		}
 	}
+
+    public void IncrementValveCount()
+    {
+        valvesOpenned++;
+    }
+
+    public int GetValveCount()
+    {
+        return valvesOpenned;
+    }
 }
