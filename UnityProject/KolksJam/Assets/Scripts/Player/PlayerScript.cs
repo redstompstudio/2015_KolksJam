@@ -43,10 +43,13 @@ public class PlayerScript : MonoBehaviour
 	private void Awake()
 	{
 		controller = GetComponent<RigidbodyFirstPersonController>();
+
 	}
 
 	private void Update()
 	{
+		Cursor.lockState = CursorLockMode.Locked;
+
 		if(!isAlive)
 			return;
 
