@@ -20,14 +20,16 @@ public class StSpawn : SKState<EnemyController>
 
     void DoAnim()
     {
-
-        Context.SetPositionY(Context.StartPosition.y - StartPosition);
-        iTween.MoveTo(Context.gameObject,
-            iTween.Hash(
-            "y", Context.StartPosition.y,
-            "time", IADefs.SpawnTime,
-            "easytype", EasyType
-            ));
+        if (Context.m_MoveOnSpawnAndDespawn)
+        {
+            Context.SetPositionY(Context.StartPosition.y - StartPosition);
+            iTween.MoveTo(Context.gameObject,
+                iTween.Hash(
+                "y", Context.StartPosition.y,
+                "time", IADefs.SpawnTime,
+                "easytype", EasyType
+                ));
+        }
         SoundList.Play3D("SfxSpawn");
             
     }

@@ -23,7 +23,6 @@ public class SceneProp : MonoBehaviour
 
     private void OnTriggerEnter(Collider pCollider)
     {
-        Debug.Log("OnEnter");
         if (m_bReleased)
             return;
         foreach (MonoBehaviour mono in m_MonoEnabler)

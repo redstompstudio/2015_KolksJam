@@ -17,19 +17,23 @@ public class StDespawn  : SKState<EnemyController>
         m_bFinished = false;
 
         Context.Animator.SetFloat("Speed", 0);
+        Context.Animator.SetBool("Despawing", true);
+        
         Context.StartCoroutine(WaitSpawnAnim());
     }
 
     void DoAnim()
     {
-        //Context.SetPositionY(StartPosition);
-        iTween.MoveTo(Context.gameObject,
-            iTween.Hash(
-            "y", Context.StartPosition.y - FinalPosition,
-            "time", IADefs.DespawnTime,
-            "easytype", EasyType
-            ));
-
+        if (Context.m_MoveOnSpawnAndDespawn)
+        {
+            //Context.SetPositionY(StartPosition);
+            iTween.MoveTo(Context.gameObject,
+                iTween.Hash(
+                "y", Context.StartPosition.y - FinalPosition,
+                "time", IADefs.DespawnTime,
+                "easytype", EasyType
+                ));
+        }
         SoundList.Play3D("SfxDespawn");
     }
 
