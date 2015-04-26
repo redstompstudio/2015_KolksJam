@@ -40,10 +40,7 @@ public class SoundList : MonoBehaviour
         Debug.LogError("Sound Not Found[" + sSoundName + "]");
         return null;
     }
-
-
-
-
+	
     public static void Play3D(string sSoundName)
     {
         AudioSource pSound = GetSoundSource(sSoundName);
@@ -52,6 +49,16 @@ public class SoundList : MonoBehaviour
             pSound.Play();
         }
     }
+	
+	public static void Play3DAt(string sSoundName, Vector3 pPosition)
+	{
+		AudioSource pSound = GetSoundSource(sSoundName);
+		if (pSound)
+		{
+			pSound.transform.position = pPosition;
+			pSound.Play();
+		}
+	}
 
     public static AudioSource GetSoundSource(string sSoundName)
     {
@@ -63,4 +70,5 @@ public class SoundList : MonoBehaviour
         Debug.LogError("Sound Not Found[" + sSoundName + "]");
         return null;
     }
+
 }
