@@ -15,7 +15,7 @@ public class SceneManager : MonoBehaviour
 
     void Update()
     {
-        ValvesCount.text = valvesOpenned.ToString();
+        ValvesCount.text = valvesOpenned.ToString() + " / 4";
     }
 
 	public static SceneManager Instance
