@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public GameObject[] UIElements;
 
     public CanvasGroup Credits;
+    public CanvasGroup TutorialMessage;
 
     public Text ValvesCount;
 
@@ -16,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     bool showMainMenu = true;
     bool showCredits = false;
+    bool showTutorialMessage = false;
 
     void Start()
     {
@@ -35,16 +37,34 @@ public class MainMenu : MonoBehaviour
 
         if (!showCredits && Credits.alpha > 0)
             Credits.alpha -= .7f * Time.deltaTime;
+
+        if (showTutorialMessage && TutorialMessage.alpha < 1)
+            TutorialMessage.alpha += .7f * Time.deltaTime;
+
+        if (!showTutorialMessage && TutorialMessage.alpha > 0)
+            TutorialMessage.alpha -= .7f * Time.deltaTime;
+
     }
 
     public void OnClickPlay()
     {
+        TutorialMessage.gameObject.SetActive(true);
         SceneManager.Instance.player.OnStartGame();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         showMainMenu = false;
+        showTutorialMessage = true;
         AIM.color = new Color(1f, 1f, 1f, 1f);
         DisableUI();
+        StartCoroutine("DisableTutorial");
+    }
+
+    IEnumerator DisableTutorial()
+    {
+        yield return new WaitForSeconds(3f);
+        showTutorialMessage = false;
+        yield return new WaitForSeconds(5f);
+        gameObject.SetActive(false);
     }
 
     void DisableUI()
