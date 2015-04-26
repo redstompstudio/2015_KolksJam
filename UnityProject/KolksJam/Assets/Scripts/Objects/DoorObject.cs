@@ -5,10 +5,10 @@ public class DoorObject : MonoBehaviour, IActionReceiver
 {
     public bool isTwoSided = true;
 
-    public float zColliderSize = 3.5f;
+    public float zColliderSize = 3f;
     public float zColliderCenter = .25f;
 
-    public bool canOpenDoor = false;
+    bool canOpenDoor = false;
     bool isAnimating = false;
 
 	public AudioSource tryToOpenSFX;
@@ -77,6 +77,11 @@ public class DoorObject : MonoBehaviour, IActionReceiver
     }
 
     void OnTriggerEnter()
+    {
+        canOpenDoor = true;
+    }
+
+    void OnTriggerStay()
     {
         canOpenDoor = true;
     }
