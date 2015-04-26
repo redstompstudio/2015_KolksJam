@@ -61,9 +61,9 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator DisableTutorial()
     {
-        yield return new WaitForSeconds(3f);
-        showTutorialMessage = false;
         yield return new WaitForSeconds(5f);
+        showTutorialMessage = false;
+        yield return new WaitForSeconds(10f);
         gameObject.SetActive(false);
     }
 
@@ -88,5 +88,11 @@ public class MainMenu : MonoBehaviour
     {
         showMainMenu = true;
         showCredits = false;
+    }
+
+    public void OnClickFullScreen()
+    {
+        Debug.Log("FullScreen");
+        Screen.fullScreen = !Screen.fullScreen;
     }
 }
