@@ -44,6 +44,6 @@ public class UISplash : MonoBehaviour
 
     void StarGame()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel(1);
     }
 }
